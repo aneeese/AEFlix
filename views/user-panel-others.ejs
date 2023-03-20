@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">      
+    <link rel="stylesheet" href="user-panel-others.css">
+    <link rel="icon" href="/other-images/logo.png" type="image/icon type">
+    <title>Others</title>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <!-- Logo + name -->
+                <div class="logo">
+                    <img src="/other-images/logo.png" alt="">
+                    <h2>AE<span style="color: #df1e24;">Flix</span></h2>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <!-- Profile -->
+                <a href="user-panel-profile" ><span class="material-icons" >person</span><h3>Your Profile</h3></a>
+ 
+                <!-- Subscriptions -->
+                <a href="user-panel-subscriptions" ><span class="material-icons">subscriptions</span><h3>Subscriptions</h3></a>
+ 
+                <!-- Search Videos -->
+                <a href="user-panel-search" ><span class="material-icons">search</span><h3>Search Videos</h3></a>
+ 
+                <!-- Request Videos -->
+                <a href="user-panel-request"><span class="material-icons">mail</span><h3>Request Videos</h3></a>
+ 
+                <!-- Playlist -->
+                <a href="user-panel-list" ><span class="material-icons">playlist_play</span><h3>Your Lists</h3></a>
+ 
+                <!-- Others-->
+                <a href="" class="active"><span class="material-icons">contact_support</span><h3>Others</h3></a>
+ 
+                <!-- Log Out -->
+                <a href="landing-page" ><span class="material-icons">logout</span><h3>Log Out</h3></a>            
+            </div>
+        </aside>
+
+        <!-- --------------------- END OF ASIDE ---------------------------- -->
+        <main>        
+            <div class="feedback">
+                <h1>Feedback</h1>
+                <a href="#send-feedback"><span>Send a feedback</span></a>
+            </div>
+
+            <h1>FAQ</h1>
+            <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                What is AEFlix?
+                </div>
+                <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                    AEFlix is the world’s leading subscription service for watching TV episodes and movies. It allows subscribers to gain access to unlimited TV shows and movies anytime, anywhere.
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                What devices can I use to stream AEFlix?
+                </div>
+                <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                    You can stream videos from any Internet-connected device. You can watch it on streaming media players, smart TVs, game consoles, set-top boxes, Blu-ray players, smartphones, tablets, PCs, and laptops.
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                What plans and pricing do we offer?
+                </div>
+                <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                    Netflix offers a variety of plans to meet your needs. The plan you choose will determine the expiry date.
+                    <ul style="padding-left: 1rem;">
+                    <li>&#8226;   Basic for Rs.450 Weekly.</li>
+                    <li>&#8226;   Standard for Rs.800 Monthly</li>
+                    <li>&#8226;   Premium for Rs.1500 Annually</li>
+                    </ul>
+                </div>
+                </div>
+
+                <!-- Pop up on add new  -->
+            <div class="popup" id="send-feedback">
+                <div class="wrapper">
+                    <h2>SENDING FEEDBACK</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <div class="content-container">
+                            <form action="#" method="post">
+                                <div class="name">
+                                    <label>Feedback</label>
+                                    <input name="feedbackText" placeholder="Enter feedback here" type="text">
+                                </div>
+                                <input type="submit" value="Send feedback">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>                  
+        <!------------------------------ END OF MAIN ------------------------->
+    </div>
+
+    <script src="users-panel-others.js"></script>
+</body>
+</html>

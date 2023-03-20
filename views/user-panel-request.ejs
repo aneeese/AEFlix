@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">      
+    <link rel="stylesheet" href="user-panel-request.css">
+    <link rel="icon" href="/other-images/logo.png" type="image/icon type">
+    <title>Request Videos</title>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <!-- Logo + name -->
+                <div class="logo">
+                    <img src="/other-images/logo.png" alt="">
+                    <h2>AE<span style="color: #df1e24;">Flix</span></h2>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <!-- Profile -->
+                <a href="user-panel-profile" ><span class="material-icons" >person</span><h3>Your Profile</h3></a>
+ 
+                <!-- Subscriptions -->
+                <a href="user-panel-subscriptions" ><span class="material-icons">subscriptions</span><h3>Subscriptions</h3></a>
+ 
+                <!-- Search Videos -->
+                <a href="user-panel-search" ><span class="material-icons">search</span><h3>Search Videos</h3></a>
+ 
+                <!-- Request Videos -->
+                <a href="" class="active"><span class="material-icons">mail</span><h3>Request Videos</h3></a>
+ 
+                <!-- Playlist -->
+                <a href="user-panel-list" ><span class="material-icons">playlist_play</span><h3>Your Lists</h3></a>
+ 
+                <!-- Others-->
+                <a href="user-panel-others" ><span class="material-icons">contact_support</span><h3>Others</h3></a>
+ 
+                <!-- Log Out -->
+                <a href="landing-page" ><span class="material-icons">logout</span><h3>Log Out</h3></a>            
+            </div>
+        </aside>
+
+        <!-- --------------------- END OF ASIDE ---------------------------- -->
+        <main>
+            <div class="main-head">
+                <h1>Video Requests</h1>
+                <a href="#send-request"><span>Request a new Video</span></a>
+            </div>
+
+            <!-- Pop up on add new  -->
+            <div class="popup" id="send-request">
+                <div class="wrapper">
+                    <h2>REQUESTING VIDEO</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <div class="content-container">
+                            <form action="#" method="post">
+                                <div class="name">
+                                    <label>Media Title</label>
+                                    <input placeholder="Enter media title" name="mediaName" type="text">
+                                </div>
+                                <div class="name">
+                                    <label>Media Type</label>
+                                    <select name="picker" style="margin-left: 1.3rem;">
+                                        <option value="" selected>Select Media Type</option>
+                                        <option value="movie">Movie</option>
+                                        <option value="series">Series</option> 
+                                    </select>
+                                </div>
+                                <input class="hi" type="hidden" id="userID" name="userID" value= <%= data[0]%> <style> </style>/>
+                                <input type="submit" value="Request Video">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top">
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                    <span class="material-symbols-sharp">search</span>
+                </div>
+            </div>
+            
+            <div class="sub">
+
+            </div>
+
+            <div class="table-data">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Request Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for (let i = 0; i < reqData.length; i++) {%>
+                            <tr>
+                                <td><%= reqData[i][0]%></td>
+                                <td><%= reqData[i][1].toDateString()%></td>
+                                <% if (reqData[i][2] == 'Pending') {%> 
+                                    <td class="danger"><%= reqData[i][2]%></td>
+                                <%}%>
+                                <% if (reqData[i][2] == 'Approved') {%>
+                                    <td class="success"><%= reqData[i][2]%></td>
+                                <%}%>
+                            </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </main>                  
+        <!------------------------------ END OF MAIN ------------------------->
+    </div>
+    
+
+    <script src="user-panel-request.js"></script>
+</body>
+</html>

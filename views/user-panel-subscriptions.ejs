@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">      
+    <link rel="stylesheet" href="user-panel-subscriptions.css">
+    <link rel="icon" href="/other-images/logo.png" type="image/icon type">
+    <title>Subscriptions</title>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <!-- Logo + name -->
+                <div class="logo">
+                    <img src="/other-images/logo.png" alt="">
+                    <h2>AE<span style="color: #df1e24;">Flix</span></h2>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <!-- Profile -->
+                <a href="user-panel-profile" ><span class="material-icons" >person</span><h3>Your Profile</h3></a>
+ 
+                <!-- Subscriptions -->
+                <a href="" class="active"><span class="material-icons">subscriptions</span><h3>Subscriptions</h3></a>
+ 
+                <!-- Search Videos -->
+                <a href="user-panel-search" ><span class="material-icons">search</span><h3>Search Videos</h3></a>
+ 
+                <!-- Request Videos -->
+                <a href="user-panel-request" ><span class="material-icons">mail</span><h3>Request Videos</h3></a>
+ 
+                <!-- Playlist -->
+                <a href="user-panel-list" ><span class="material-icons">playlist_play</span><h3>Your Lists</h3></a>
+ 
+                <!-- Others-->
+                <a href="user-panel-others" ><span class="material-icons">contact_support</span><h3>Others</h3></a>
+                
+                <!-- Log Out -->
+                <a href="landing-page" ><span class="material-icons">logout</span><h3>Log Out</h3></a>            
+            </div>
+        </aside>
+
+        <!-- --------------------- END OF ASIDE ---------------------------- -->
+        <main>
+            <h3>Current Subscription</h3>
+            <div class="current-sub">
+                <table>
+                    <tr>
+                        <td>Card Holder</td>
+                        <td><%= data[1] %> </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Package</td>
+                        <td><%= data[7] %> </td>
+                    </tr>
+                    <tr>
+                        <td>Payment</td>
+                        <td><%= data[8] %> </td>
+                    </tr>
+                    <tr>
+                        <td>Card Number</td>
+                        <td><%= data[9] %> </td>
+                    </tr>
+                    <tr>
+                        <td>CVC</td>
+                        <td><%= data[10] %> </td>
+                    </tr>
+                    <tr>
+                        <td>Card Expiry Date</td>
+                        <td><%= data[11].toDateString() %> </td>
+                    </tr>
+                    <tr>
+                        <td>Package Expiry Date</td>
+                        <td><%= data[12].toDateString() %> </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="all-subs">
+                <h3>All Subscriptions</h3>
+                <div class="table-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Card Holder</th>
+                                <th>Package</th>
+                                <th>Payment</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (let i = 0; i < subscriptionData.length; i++) {%>
+                                <tr>
+                                    <td><%= data[1] %> </td>
+                                    <% if (subscriptionData[i][0] == 'Premium') {%> 
+                                        <td class="danger"><%= subscriptionData[i][0]%></td>
+                                    <%}%>
+                                    <% if (subscriptionData[i][0] == 'Basic') {%>
+                                        <td class="success"><%= subscriptionData[i][0]%></td>
+                                    <%}%>
+                                    <% if (subscriptionData[i][0] == 'Standard') {%>
+                                        <td class="warning"><%= subscriptionData[i][0]%></td>
+                                    <%}%>
+                                    <td><%= subscriptionData[i][1]%></td>
+                                    <td><%= subscriptionData[i][2].toDateString()%></td>
+                                </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!------------------------END OF INSIGHTS ------------------------>
+        </main>                  
+        <!------------------------------ END OF MAIN ------------------------->
+    </div>
+
+    <script src="user-panel-subscriptions.js"></script>
+</body>
+</html>

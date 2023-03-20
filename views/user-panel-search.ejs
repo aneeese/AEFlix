@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-------------------------- CSS ------------------------>
+    <link rel="stylesheet" href="user-panel-search.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="icon" href="/other-images/logo.png" type="image/icon type">
+
+    <title>Search Videos</title>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <!-- Logo + name -->
+                <div class="logo">
+                    <img src="/other-images/logo.png" alt="">
+                    <h2>AE<span style="color: #df1e24;">Flix</span></h2>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <!-- Profile -->
+                <a href="user-panel-profile"><span class="material-icons" >person</span><h3>Your Profile</h3></a>
+ 
+                <!-- Subscriptions -->
+                <a href="user-panel-subscriptions" ><span class="material-icons">subscriptions</span><h3>Subscriptions</h3></a>
+ 
+                <!-- Search Videos -->
+                <a href="" class="active"><span class="material-icons">search</span><h3>Search Videos</h3></a>
+
+                <!-- Request Videos -->
+                <a href="user-panel-request" ><span class="material-icons">mail</span><h3>Request Videos</h3></a>
+ 
+                <!-- My List -->
+                <a href="user-panel-list" ><span class="material-icons">playlist_play</span><h3>Your Lists</h3></a>
+ 
+                <!-- Others-->
+                <a href="user-panel-others" ><span class="material-icons">contact_support</span><h3>Others</h3></a>
+ 
+                <!-- Log Out -->
+                <a href="landing-page" ><span class="material-icons">logout</span><h3>Log Out</h3></a>            </div>
+        </aside>
+
+        <!-- --------------------- END OF ASIDE ---------------------------- -->
+        <div class="main">
+            <h1>Search Videos</h1>
+            <!-- Movie overlay on right side -->
+            <!-- Placed it here ta k gum na jaye, nazar aa jaye while working -->
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <div class="media-title">
+                        <label>Title</label>
+                        <p>A Quiet Place</p>
+                    </div>
+                    <div class="desc">
+                        <label>Description</label>
+                        <div class="desc-sub">
+                            <p>
+                            A family struggles for survival in a world where most humans
+                            have been killed by blind but noise-sensitive creatures. 
+                            They are forced to communicate in sign language to keep the 
+                            creatures at bay.</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <label>Rating</label>
+                        <p>7.5</p>
+                    </div>
+                    <div class="duration">
+                        <label>Duration</label>
+                        <p>01:20:00</p>
+                    </div>
+                    <div class="release-date">
+                        <label>Release Date</label>
+                        <p>06-APR-18</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="buttons">
+                        <a href="#fav" onclick="closeNav();"><span class="material-icons fav">favorite</span></a>
+                        <a href="#playlist" onclick="closeNav();"><span class="material-icons playlist">playlist_add</span></a>
+                        <a href="#watch-later" onclick="closeNav();"><span class="material-icons later">watch_later</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="movies" class="movie-list-container">
+                <div class="title">
+                    <span>MOVIES</span>
+                </div>
+                <div class="top">
+                    <form action="#" method="post">
+                        <div class="search">
+                            <input type="text" name="searchMovie" placeholder="Search">
+                            <span class="material-icons">search</span>
+                        </div>
+                    </form>
+                </div>
+                <div id="movies-table" class="table-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Rating</th>
+                                <th>Duration</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (let i = 0; i < movieData.length; i++) {%>
+                                <tr>
+                                    <td><%= movieData[i][0]%></td>
+                                    <td><%= movieData[i][1]%></td>
+                                    <td><%= movieData[i][2]%></td>
+                                    <td><%= movieData[i][3]%></td>
+                                    <td class="action">
+                                        <a href="#fav" onclick="closeNav();"><span class="material-icons fav">favorite</span></a>
+                                        <a href="#playlist" onclick="closeNav();"><span class="material-icons playlist">playlist_add</span></a>
+                                        <a href="#watch-later" onclick="closeNav();"><span class="material-icons later">watch_later</span></a>
+                                    </td>
+                                </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="series" class="movie-list-container">
+                <div class="title">
+                    <span>TV SHOWS</span>
+                </div>
+                <div class="top">
+                    <div class="search">
+                        <input type="text" placeholder="Search">
+                        <span class="material-icons">search</span>
+                    </div>
+                </div>
+                <div id="series-table" class="table-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Seasons</th>
+                                <th>Description</th>
+                                <th>Rating</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (let i = 0; i < seriesData.length; i++) {%>
+                                <tr>
+                                    <td><%= seriesData[i][0]%></td>
+                                    <td><%= seriesData[i][1]%></td>
+                                    <td><%= seriesData[i][2]%></td>
+                                    <td><%= seriesData[i][3]%></td>
+                                    <td class="action">
+                                        <a href="#fav" onclick="closeNav();"><span class="material-icons fav">favorite</span></a>
+                                        <a href="#playlist" onclick="closeNav();"><span class="material-icons playlist">playlist_add</span></a>
+                                        <a href="#watch-later" onclick="closeNav();"><span class="material-icons later">watch_later</span></a>
+                                    </td>
+                                </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+             <!-- Confirmation popup (Favorites)  -->
+             <div class="popup" id="fav">
+                <div class="wrapper">
+                    <h2>ADDING TO FAVORITES</h2>
+                    <div class="content">
+                        <div class="confirm-container">
+                            <span>Media added to Favorites.</span>
+                            <div class="confirmation">
+                                <a href="" id="yes">Ok</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pop up on add new  -->
+            <div class="popup" id="playlist">
+                <div class="wrapper">
+                    <h2>ADDING PLAYLIST</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <div class="content-container">
+                            <form>
+                                <div class="gender">
+                                    <label>Playlist</label> 
+                                    <select  id="gender-spec">
+                                        <option selected disabled hidden>Select playlist</option>
+                                        <option value="Male">Vibes</option>
+                                        <option value="Female">Sad</option>
+                                      </select>
+                                </div> 
+                                <h3>OR CREATE A NEW ONE</h3>
+                                <div class="name">
+                                    <label>Playlist</label>
+                                    <input placeholder="Enter playlist name" type="text">
+                                </div>                              
+                                <input id="add-to-playlist" type="submit" value="Add Video">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirmation popup (Watch Later) -->
+            <div class="popup" id="watch-later">
+                <div class="wrapper">
+                    <h2>ADDING TO WATCH LATER</h2>
+                    <div class="content">
+                        <div class="confirm-container">
+                            <span>Media added to Watch Later.</span>
+                            <div class="confirmation">
+                                <a href="" id="yes">Ok</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!------------------------------ END OF MAIN ------------------------->
+    </div>
+
+    <!----------------------- JAVASCRIPT--------------------->
+    <script src="user-panel-search.js"></script>
+
+</body>
+</html>
