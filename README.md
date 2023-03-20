@@ -1,2 +1,2 @@
 # AEFlix
-It is a Movie Database having 2 main modules user and admin.
+It is a Movie Database having 2 main modules user and admin. User can register and view movies, actors, directors description along with their projects. User can also request new movies and this request is entertained by admin. There's also a feedback and review system for user. Admin can add new users after login. On admin dashboard, he can view number of users, movies and series. Admin will review user's requests and feedback.
